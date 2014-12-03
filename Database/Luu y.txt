@@ -1,0 +1,2 @@
+Import into neabean
+Config connection in DAL/config.properties
