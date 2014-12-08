@@ -18,9 +18,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/")
 public class HomeController {
     @Autowired
-    IAuthorService service;
     @RequestMapping("/index")
     public String index(){
         return "home.index";
+    }
+    
+    @Autowired
+    @RequestMapping("/search")
+    public String search(){
+        return "home.search";
     }
 }
