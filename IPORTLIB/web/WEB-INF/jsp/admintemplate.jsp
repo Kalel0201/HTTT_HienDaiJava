@@ -19,6 +19,7 @@
     <div id="menu">
         <ul class="wrapper">
             <li><a href="${pageContext.request.contextPath}/config/index">Config</a></li>
+            <li><a href="${pageContext.request.contextPath}/country/index">An Pham Can Mua</a></li>
             <li><a href="${pageContext.request.contextPath}/country/index">Country</a></li>
             <li><a href="${pageContext.request.contextPath}/province/index">Province</a></li>
             <li><a href="${pageContext.request.contextPath}/supplier/index">Supplier</a></li>
@@ -47,6 +48,7 @@
     <div id="main" class="wrapper">
     	<tiles:insertAttribute name="main" />
     </div>
+    
     <div id="footer">
         <div id="footer-copyright">
             <div class="wrapper">Coppyright &copy; Group 07</div>

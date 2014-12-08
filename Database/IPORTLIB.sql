@@ -9,6 +9,10 @@ Create Table Statuses
 	StatusName nvarchar(128) not null
 )
 go
+Insert Statuses Values('delete')
+Insert Statuses Values('activity')
+Insert Statuses Values('disable')
+go
 --Table Cau hinh
 Create Table Configs
 (
@@ -237,3 +241,24 @@ Create Table LoanDetails
 )
 go
 
+----------------------------------------------------------------
+--				Duy Tân				
+----------------------------------------------------------------
+-- An Pham Can Mua
+Create Table PurchasePublications
+(
+	PurPubId int not null identity(1, 1) primary key,
+	TopicId int not null references Topics(TopicId), -- Chu de
+	AuthorId int not null references Authors(AuthorId), -- Tac gia
+	PublisherId int not null references Publishers(PublisherId), -- Nha phat hanh
+	PublicationTypeId int not null references PublicationTypes(PublicationTypeId), -- Xuat Ban
+	MajorId int not null references Majors(MajorId), -- Chuyen nganh
+	LanguageId int not null references Languages(LanguageId), -- Ngon ngu
+	Title nvarchar(256) not null, -- Tieu de
+	SubTitle nvarchar(256), -- Phu de 
+	PublisherYear int not null, -- Nam xuat ban
+	Description nvarchar(512), -- Mieu ta.
+	Quantity int not null, -- So luong
+	Note nvarchar(512), -- Ghi chu
+	StatusId int not null references Statuses(StatusId) -- Trang thai // Da mua, Chua mua, Huy.
+)
