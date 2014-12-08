@@ -1,3 +1,4 @@
+<%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -6,6 +7,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Hello World!F</h1>
+        <tiles:insertAttribute name="main" />
     </body>
 </html>
