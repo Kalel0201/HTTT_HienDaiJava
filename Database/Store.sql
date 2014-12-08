@@ -1066,3 +1066,13 @@ as
 	Select COUNT(*) from Statuses;
 go
 
+-- Lich Nguyen
+CREATE PROCEDURE GetNotificationsByUserId
+(
+	@UserId INT 
+)
+AS
+	SELECT NoID, Title, Created, Name
+	FROM Notifications JOIN NotificationTypes ON Notifications.NotiTypeID = NotificationTypes.NotiTypeID
+	WHERE UserId = @UserId
+GO

@@ -262,3 +262,23 @@ Create Table PurchasePublications
 	Note nvarchar(512), -- Ghi chu
 	StatusId int not null references Statuses(StatusId) -- Trang thai // Da mua, Chua mua, Huy.
 )
+
+-- Lich Nguyen
+GO
+
+CREATE TABLE NotificationTypes
+(
+	NotiTypeID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
+	Name VARCHAR(128) NOT NULL
+)
+
+GO
+
+CREATE TABLE Notifications
+(
+	NoID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
+	NotiTypeID INT NOT NULL REFERENCES NotificationTypes(NotiTypeID),
+	UserId INT NOT NULL REFERENCES Users(UserId),
+	Title nvarchar(256) NOT NULL,
+	Created DATETIME
+)
