@@ -13,18 +13,23 @@
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
-                                <div class="alert alert-success">
-                                    The book is over day. <a href="#" class="alert-link pull-right">Extend</a>
+                                <c:forEach var="item" items="${notifications}">
+                                    <div class="alert alert-danger">
+                                        ${item.getName()}. <a href="#" data-toggle="modal" data-target="#myModal" class="alert-link pull-right">Extend</a>
+                                    </div>
+                                </c:forEach>
+<!--                                <div class="alert alert-success">
+                                    The book is over day. <a href="#" data-toggle="modal" data-target="#myModal" class="alert-link pull-right">Extend</a>
                                 </div>
                                 <div class="alert alert-info">
-                                    The book is over day. <a href="#" class="alert-link pull-right">Extend</a>
+                                    The book is over day. <a href="#" data-toggle="modal" data-target="#myModal" class="alert-link pull-right">Extend</a>
                                 </div>
                                 <div class="alert alert-warning">
-                                    The book is over day. <a href="#" class="alert-link pull-right">Extend</a>
+                                    The book is over day. <a href="#" data-toggle="modal" data-target="#myModal" class="alert-link pull-right">Extend</a>
                                 </div>
                                 <div class="alert alert-danger">
-                                    The book is over day. <a href="#" class="alert-link pull-right">Extend</a>
-                                </div>
+                                    The book is over day. <a href="#" data-toggle="modal" data-target="#myModal" class="alert-link pull-right">Extend</a>
+                                </div>-->
                             </div>
                             <!-- .panel-body -->
                         </div>
@@ -37,3 +42,25 @@
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Extend book</h4>
+            </div>
+            <div class="modal-body">
+                Dropdown list to choose the time extend
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

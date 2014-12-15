@@ -6,6 +6,7 @@
 package Controller;
 
 import BLL.INotificationService;
+import DTO.Notification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,15 +27,15 @@ public class HomeController {
         return "home.index";
     }
     
-    @Autowired
     @RequestMapping("/search")
     public String search(){
         return "home.search";
     }
     
-    @Autowired
     @RequestMapping("/notifications")
-    public String getNotifications(){
+    public String notifications(Model model){
+        List<DTO.Notification> _list = service.gets(1);
+        model.addAttribute("notifications", service.gets(1));
         return "home.notifications";
     }
 }
