@@ -15,7 +15,7 @@
                             <div class="panel-body">
                                 <c:forEach var="item" items="${notifications}">
                                     <div class="alert alert-danger">
-                                        ${item.getName()}. <a href="#" data-toggle="modal" data-target="#myModal" class="alert-link pull-right">Extend</a>
+                                        ${item.name}. <a href="#" data-toggle="modal" data-target="#myModal" class="alert-link pull-right">Extend</a>
                                     </div>
                                 </c:forEach>
 <!--                                <div class="alert alert-success">
