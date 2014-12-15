@@ -5,7 +5,7 @@
  */
 package Controller;
 
-import BLL.IAuthorService;
+import BLL.INotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,13 +13,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import java.util.List;
 @Controller
 @RequestMapping("/")
 public class HomeController {
     @Autowired
+    INotificationService service;
     @RequestMapping("/index")
-    public String index(){
+    public String index(Model model){
+        //List<DTO.Notification> _list = service.gets(1);
+        //model.addAttribute("notifications", service.gets(1));
         return "home.index";
     }
     
@@ -27,5 +30,11 @@ public class HomeController {
     @RequestMapping("/search")
     public String search(){
         return "home.search";
+    }
+    
+    @Autowired
+    @RequestMapping("/notifications")
+    public String getNotifications(){
+        return "home.notifications";
     }
 }
