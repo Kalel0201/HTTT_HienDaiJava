@@ -9,6 +9,14 @@
        http://www.springframework.org/schema/p http://www.springframework.org/schema/mvc/spring-p-4.0.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     <mvc:annotation-driven />
+    
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/*" />
+            <bean class="Controller.Interceptor" />
+        </mvc:interceptor> 
+    </mvc:interceptors>
+    
     <context:annotation-config />    
     <context:component-scan base-package="BLL" />
     <context:component-scan base-package="DAL" />

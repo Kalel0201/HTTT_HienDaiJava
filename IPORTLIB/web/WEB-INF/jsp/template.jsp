@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
@@ -47,42 +48,20 @@
                                         <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
                                     </a>
                                     <ul class="dropdown-menu dropdown-messages" style="width: 300px">
-                                        <li>
-                                            <a href="#">
-                                                <div>
-                                                    <strong>The title</strong>
-                                                    <span class="pull-right text-muted">
-                                                        <em>Yesterday</em>
-                                                    </span>
-                                                </div>
-                                                <div>The book over day</div>
-                                            </a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li>
-                                            <a href="#">
-                                                <div>
-                                                    <strong>The title</strong>
-                                                    <span class="pull-right text-muted">
-                                                        <em>Yesterday</em>
-                                                    </span>
-                                                </div>
-                                                <div>The book over day</div>
-                                            </a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li>
-                                            <a href="#">
-                                                <div>
-                                                    <strong>The title</strong>
-                                                    <span class="pull-right text-muted">
-                                                        <em>Yesterday</em>
-                                                    </span>
-                                                </div>
-                                                <div>The book over day</div>
-                                            </a>
-                                        </li>
-                                        <li class="divider"></li>
+                                        <c:forEach var="item" items="${notis}">
+                                            <li>
+                                                <a href="">
+                                                    <div>
+                                                        <strong>${item.title}</strong>
+                                                        <span class="pull-right text-muted">
+                                                            <em>${item.created}</em>
+                                                        </span>
+                                                    </div>
+                                                    <div>${item.name}</div>
+                                                </a>
+                                            </li>
+                                            <li class="divider"></li>
+                                        </c:forEach>
                                         <li>
                                             <a class="text-center" href="${pageContext.request.contextPath}/notifications">
                                                 <strong>Read All Messages</strong>
@@ -134,7 +113,6 @@
             </div>
         </div>
     </div>
-
 
     <tiles:insertAttribute name="main" />
 

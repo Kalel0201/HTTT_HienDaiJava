@@ -34,7 +34,6 @@ public class HomeController {
     
     @RequestMapping("/notifications")
     public String notifications(Model model){
-        List<DTO.Notification> _list = service.gets(1);
         model.addAttribute("notifications", service.gets(1));
         return "home.notifications";
     }
