@@ -278,6 +278,7 @@ CREATE TABLE Notifications
 (
 	NoID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
 	NotiTypeID INT NOT NULL REFERENCES NotificationTypes(NotiTypeID),
+	LoanDetailsID INT NOT NULL REFERENCES LoanDetails(LoanDetailId),
 	UserId INT NOT NULL REFERENCES Users(UserId),
 	Title nvarchar(256) NOT NULL,
 	Created DATETIME

@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import BLL.ILoanDetailService;
 import DTO.LoanDetail;
+import java.util.Date;
+import javax.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping("/loanDetail")
 public class LoanDetailController {
@@ -43,5 +45,15 @@ public class LoanDetailController {
 	public String delete(Model model, @PathVariable(value = "id") int id){
 		service.delete(id);
 		return "redirect:../index";
+	}
+        
+        @RequestMapping(value = "/extend", method = RequestMethod.POST)
+	public String extend(HttpServletRequest request){
+		int id = Integer.parseInt(request.getParameter("LoanDetailsID"));
+                LoanDetail loanDetail = service.get(id);
+                Date today = new Date();
+                loanDetail.setDatePay(today);
+                service.edit(loanDetail);
+                return "redirect:../index";
 	}
 }

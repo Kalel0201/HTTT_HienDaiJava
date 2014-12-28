@@ -6,38 +6,43 @@
         <div class="main">
             <div class="content">
                 <div class="row">
-                    <div class="">
+                    <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 List notifications
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
-                                <c:forEach var="item" items="${notifications}">
-                                    <div class="alert alert-danger">
-                                        ${item.name}. <a href="#" data-toggle="modal" data-target="#myModal" class="alert-link pull-right">Extend</a>
-                                    </div>
-                                </c:forEach>
-<!--                                <div class="alert alert-success">
-                                    The book is over day. <a href="#" data-toggle="modal" data-target="#myModal" class="alert-link pull-right">Extend</a>
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Title</th>
+                                                <th>Publications</th>
+                                                <th>Date Loan</th>
+                                                <th>Date Pay</th>
+                                                <th>#</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <c:forEach var="item" items="${notifications}">
+                                            <td>${item.name}</td>
+                                            <td>${item.pubTitle}</td>
+                                            <td>${item.dateLoan}</td>
+                                            <td>${item.datePay}</td>
+                                            <td><a href="#" ref="${item.loanDetailsID}" data-toggle="modal" data-target="#myModal" class="extend">Extend</a></td>
+                                        </c:forEach>
+                                        </tbody>
+                                    </table>
                                 </div>
-                                <div class="alert alert-info">
-                                    The book is over day. <a href="#" data-toggle="modal" data-target="#myModal" class="alert-link pull-right">Extend</a>
-                                </div>
-                                <div class="alert alert-warning">
-                                    The book is over day. <a href="#" data-toggle="modal" data-target="#myModal" class="alert-link pull-right">Extend</a>
-                                </div>
-                                <div class="alert alert-danger">
-                                    The book is over day. <a href="#" data-toggle="modal" data-target="#myModal" class="alert-link pull-right">Extend</a>
-                                </div>-->
+                                <!-- /.table-responsive -->
                             </div>
-                            <!-- .panel-body -->
+                            <!-- /.panel-body -->
                         </div>
                         <!-- /.panel -->
                     </div>
                     <!-- /.col-lg-6 -->
                 </div>
-                <div class="clear"></div>
             </div>
         </div>
     </div>
@@ -49,14 +54,15 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Extend book</h4>
+                <h4 class="modal-title" id="myModalLabel">Extend publication</h4>
             </div>
             <div class="modal-body">
-                Dropdown list to choose the time extend
+                <input type="datetime" name="extend" id="extend" />
+                <input type="hidden" name="LoanDetailsID" id="LoanDetailsID" />
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="extendPost">Save changes</button>
             </div>
         </div>
         <!-- /.modal-content -->
@@ -64,3 +70,22 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+
+<script type="text/javascript">
+    $(".extend").click(function () {
+        $("#LoanDetailsID").val($(this).attr("ref"));
+    });
+    
+    $("#extendPost").click(function () {
+        var _data = { LoanDetailsID: $("#LoanDetailsID").val() };
+       $.ajax({
+           url: '/IPORTLIB/loanDetail/extend',
+           type: 'POST',
+           dataType: 'json',
+           data: _data
+       }).success(function (data) {
+           console.log('extendPost responsive');
+           console.log(data);
+       });
+    });
+</script>

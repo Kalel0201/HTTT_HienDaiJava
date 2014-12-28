@@ -54,7 +54,11 @@ public class NotificationRepository extends Repository<Notification> implements 
                 rs.getInt("NoID"),
                 rs.getString("Title"),
                 rs.getDate("Created"),
-                rs.getString("Name")
+                rs.getString("Name"),
+                rs.getString("PubTitle"),
+                rs.getDate("DateLoan"),
+                rs.getDate("DatePay"),
+                rs.getInt("LoanDetailId")
         );
     }
 }

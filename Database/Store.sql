@@ -1072,7 +1072,11 @@ CREATE PROCEDURE GetNotificationsByUserId
 	@UserId INT 
 )
 AS
-	SELECT NoID, Title, Created, Name
+	SELECT NoID, Notifications.Title, Created, Name, Publications.Title as PubTitle,
+				LoanDetails.DateLoan, LoanDetails.DatePay, LoanDetails.LoanDetailId
 	FROM Notifications JOIN NotificationTypes ON Notifications.NotiTypeID = NotificationTypes.NotiTypeID
+						JOIN LoanDetails ON Notifications.LoanDetailsID = LoanDetails.LoanDetailId
+						JOIN Books ON LoanDetails.BookId = Books.BookId
+						JOIN Publications ON Books.PublicationId = Publications.PublicationId
 	WHERE UserId = @UserId
 GO
