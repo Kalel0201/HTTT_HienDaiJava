@@ -121,7 +121,7 @@
 		<div class="wrap">
 			<div class="footer">
 			<div class="copy">
-				<p class="w3-link">© All Rights Reserved | Design by&nbsp; <a href="http://w3layouts.com/"> W3Layouts</a></p>
+				<p class="w3-link">© All Rights Reserved | Design by group 07</a></p>
 			</div>
 			<div class="clear"></div>	
 		</div>

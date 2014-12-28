@@ -16,4 +16,7 @@
   <definition name="home.search" extends="baseLayout">
     <put-attribute name="main"   value="/WEB-INF/jsp/home/search.jsp"/>
   </definition>
+  <definition name="home.notifications" extends="baseLayout">
+    <put-attribute name="main"   value="/WEB-INF/jsp/home/notifications.jsp"/>
+  </definition>
 </tiles-definitions>

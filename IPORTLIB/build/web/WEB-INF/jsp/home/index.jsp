@@ -1,7 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-
 <div class="slider_bg">
     <div class="wrap">
         <div class="slider">
@@ -12,24 +11,6 @@
                     <img src="${pageContext.request.contextPath}/images/slider/banner3.jpg" data-thumb="" alt="" />
                 </div>
             </div>
-        </div>
-        <div class="grids_1_of_3">
-            <div class="grid_1_of_3 images_1_of_3">
-                  <img src="${pageContext.request.contextPath}/images/icon1.jpg">
-                  <h3>Lorem Ipsum is simply</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore pariatur.</p>
-            </div>
-            <div class="grid_1_of_3 images_1_of_3">
-                  <img src="${pageContext.request.contextPath}/images/icon2.jpg">
-                  <h3>Lorem Ipsum is simply</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore pariatur.</p>
-            </div>
-            <div class="grid_1_of_3 images_1_of_3">
-                  <img src="${pageContext.request.contextPath}/images/icon3.jpg">
-                  <h3>Lorem Ipsum is simply</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore pariatur.</p>
-            </div>
-            <div class="clear"></div>
         </div>
     </div>
 </div>
